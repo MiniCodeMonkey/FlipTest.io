@@ -25,7 +25,7 @@
 		<p>Create and monitor the results of your A/B tests online through a simple web interface.</p>
 	</div>
 	<div class="span4">
-		<h2><i class="icon-check"></i> Non-Developer Friendly</h2>
+		<h2><i class="icon-check"></i> Headache Free</h2>
 		<p>With FlipTest, even non-developers can easily create and monitor A/B tests. No coding necessary.</p>
 	</div>
 </div>

@@ -32,7 +32,7 @@ function printView($view) {
 		<h3>
 			@if (($view->className == 'UIButton' || $view->className == 'UILabel') && isset($view->text))
 				{{ $view->text }}
-			@else
+			@elseif ($view->className != 'UIView')
 				{{ $view->className }}
 			@endif
 		</h3>
