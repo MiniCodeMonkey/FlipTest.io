@@ -1,11 +1,11 @@
 <meta charset="utf-8">
 <title>@yield('title')</title>
 <meta name="viewport" content="width=device-width">
-<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 
-{{ HTML::style('css/font-awesome.min.css') }}
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.min.css" rel="stylesheet">
 <!--[if IE 7]>
-	{{ HTML::style('css/font-awesome-ie7.min.css') }}
+	<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome-ie7.min.css" rel="stylesheet">
 <![endif]-->
 
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
 {{ HTML::style('css/style.css') }}
