@@ -29,7 +29,7 @@ class APIControllerController extends BaseController {
      */
     public function store()
     {
-        Log::info(Input::get());
+        Log::info(print_r(Input::get(), true));
     }
 
     /**
