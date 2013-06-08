@@ -8,8 +8,34 @@
 	@include('slices.head')
 </head>
 <body class="page-{{ (Request::segment(1) == NULL ? 'home' : Request::segment(1)) }}">
+	<div class="container">
 
-	@yield('content')
+      <div class="masthead">
+        <h3 class="muted"></i>FlipTest</h3>
+        <div class="navbar">
+          <div class="navbar-inner">
+            <div class="container">
+              <ul class="nav">
+                <li{{ (Request::segment(1) == NULL) ? ' class="active"' : ''}}><a href="{{ URL::to('/') }}"><i class="icon-home"></i> Home</a></li>
+                <li{{ (Request::segment(1) == 'about') ? ' class="active"' : ''}}><a href="{{ URL::to('about') }}"><i class="icon-info"></i> About</a></li>
+                <li{{ (Request::segment(1) == 'apps')? ' class="active"' : ''}}><a href="{{ URL::to('apps') }}"><i class="icon-mobile-phone"></i> Apps</a></li>
+                <li{{ (Request::segment(1) == 'tests') ? ' class="active"' : ''}}><a href="{{ URL::to('tests') }}"><i class="icon-bar-chart"></i> Tests</a></li>
+                <li{{ (Request::segment(1) == 'contact') ? ' class="active"' : ''}}><a href="{{ URL::to('contact') }}"><i class="icon-envelope"></i> Contact</a></li>
+              </ul>
+            </div>
+          </div>
+        </div><!-- /.navbar -->
+      </div>
+
+      @yield('content')
+
+      <hr>
+
+      <div class="footer">
+        <p>&copy; FlipTest 2013</p>
+      </div>
+
+    </div> <!-- /container -->
 
     @section('scripts')
 	    {{ HTML::script('js/jquery.min.js') }}

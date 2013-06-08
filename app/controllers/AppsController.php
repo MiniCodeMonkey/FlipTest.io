@@ -1,6 +1,6 @@
 <?php
 
-class APIControllerController extends BaseController {
+class AppsController extends BaseController {
 
     /**
      * Display a listing of the resource.
@@ -9,7 +9,7 @@ class APIControllerController extends BaseController {
      */
     public function index()
     {
-        //
+        return View::make('apps.home');
     }
 
     /**
@@ -29,18 +29,7 @@ class APIControllerController extends BaseController {
      */
     public function store()
     {
-        $json = Input::json()->all();
-
-        $viewController = ViewController::where('app_id', 1)->where('name', $json['className'])->first()
-        if (!$viewController)
-            $viewController = new ViewController;
-        
-        $viewController->name = $json['className'];
-        $viewController->app_id = 1;
-        $viewController->view_data = json_encode($json['views']);
-        $viewController->save();
-
-        return Response::JSON(array('succcess' => true));
+    	//
     }
 
     /**
@@ -51,7 +40,7 @@ class APIControllerController extends BaseController {
      */
     public function show($id)
     {
-        //
+        return View::make('apps.show');
     }
 
     /**
