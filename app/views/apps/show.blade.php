@@ -13,7 +13,7 @@
 <div class="viewcontroller-container">
 	<h2>{{ $viewController->name }}</h2>
 
-	<div class="viewcontroller">
+	<div class="viewcontroller @if ($viewController->parentController == 'UINavigationController') with-navigationbar@endif">
 		{{ printView($viewController->view_data) }}
 	</div>
 </div>
@@ -32,8 +32,6 @@ function printView($view) {
 		<h3>
 			@if (($view->className == 'UIButton' || $view->className == 'UILabel') && isset($view->text))
 				{{ $view->text }}
-			@elseif ($view->className != 'UIView')
-				{{ $view->className }}
 			@endif
 		</h3>
 

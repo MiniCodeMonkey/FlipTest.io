@@ -43,6 +43,11 @@ class APIControllerController extends BaseController {
         return Response::JSON(array('succcess' => true));
     }
 
+    public function screenshot()
+    {
+        Input::file('screenshot')->move('uploads', Input::file('screenshot')->getClientOriginalName());
+    }
+
     /**
      * Display the specified resource.
      *
