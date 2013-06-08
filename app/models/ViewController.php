@@ -6,4 +6,9 @@ class ViewController extends Eloquent {
     protected $guarded = array();
 
     public static $rules = array();
+
+    public function getViewDataAttribute($value)
+    {
+        return json_decode($value);
+    }
 }

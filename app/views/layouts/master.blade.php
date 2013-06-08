@@ -8,37 +8,37 @@
 	@include('slices.head')
 </head>
 <body class="page-{{ (Request::segment(1) == NULL ? 'home' : Request::segment(1)) }}">
-	<div class="container">
-
-      <div class="masthead">
-        <h3 class="muted"></i>FlipTest</h3>
+<div class="container">
+    @if (Request::segment(1) != NULL)
+    <div class="masthead">
+        <h3 class="muted"><i class="icon-beaker icon-flip-vertical"></i>FlipTest</h3>
         <div class="navbar">
-          <div class="navbar-inner">
-            <div class="container">
-              <ul class="nav">
-                <li{{ (Request::segment(1) == NULL) ? ' class="active"' : ''}}><a href="{{ URL::to('/') }}"><i class="icon-home"></i> Home</a></li>
-                <li{{ (Request::segment(1) == 'about') ? ' class="active"' : ''}}><a href="{{ URL::to('about') }}"><i class="icon-info"></i> About</a></li>
-                <li{{ (Request::segment(1) == 'apps')? ' class="active"' : ''}}><a href="{{ URL::to('apps') }}"><i class="icon-mobile-phone"></i> Apps</a></li>
-                <li{{ (Request::segment(1) == 'tests') ? ' class="active"' : ''}}><a href="{{ URL::to('tests') }}"><i class="icon-bar-chart"></i> Tests</a></li>
-                <li{{ (Request::segment(1) == 'contact') ? ' class="active"' : ''}}><a href="{{ URL::to('contact') }}"><i class="icon-envelope"></i> Contact</a></li>
-              </ul>
+            <div class="navbar-inner">
+                <div class="container">
+                    <ul class="nav">
+                        <li{{ (Request::segment(1) == NULL) ? ' class="active"' : ''}}><a href="{{ URL::to('/') }}"><i class="icon-home"></i> Home</a></li>
+                        <li{{ (Request::segment(1) == 'about') ? ' class="active"' : ''}}><a href="{{ URL::to('about') }}"><i class="icon-info"></i> About</a></li>
+                        <li{{ (Request::segment(1) == 'apps')? ' class="active"' : ''}}><a href="{{ URL::to('apps') }}"><i class="icon-mobile-phone"></i> Apps</a></li>
+                        <li{{ (Request::segment(1) == 'tests') ? ' class="active"' : ''}}><a href="{{ URL::to('tests') }}"><i class="icon-bar-chart"></i> Tests</a></li>
+                        <li{{ (Request::segment(1) == 'contact') ? ' class="active"' : ''}}><a href="{{ URL::to('contact') }}"><i class="icon-envelope"></i> Contact</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
         </div><!-- /.navbar -->
-      </div>
+    </div>
+    @endif
 
-      @yield('content')
+    @yield('content')
 
-      <hr>
+    <hr>
 
-      <div class="footer">
-        <p>&copy; FlipTest 2013</p>
-      </div>
+    <div class="footer">
+      <p>&copy; FlipTest 2013</p>
+    </div>
+</div> <!-- /container -->
 
-    </div> <!-- /container -->
-
-    @section('scripts')
-	    {{ HTML::script('js/jquery.min.js') }}
-    @show
+@section('scripts')
+    {{ HTML::script('js/jquery.min.js') }}
+@show
 </body>
 </html>

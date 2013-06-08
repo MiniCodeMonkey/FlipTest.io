@@ -12,6 +12,13 @@
 */
 
 Route::get('/', 'HomeController@showIndex');
+Route::get('contact', function () {
+	return View::make('contact');
+});
+
+Route::get('start', function () {
+	return View::make('start');
+});
 
 Route::resource('api/v1/controller', 'APIControllerController');
 Route::resource('apps', 'AppsController');

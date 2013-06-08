@@ -40,7 +40,9 @@ class AppsController extends BaseController {
      */
     public function show($id)
     {
-        return View::make('apps.show');
+        $viewControllers = ViewController::where('app_id', 1)->get();
+
+        return View::make('apps.show', compact('viewControllers'));
     }
 
     /**

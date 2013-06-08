@@ -31,7 +31,7 @@ class APIControllerController extends BaseController {
     {
         $json = Input::json()->all();
 
-        $viewController = ViewController::where('app_id', 1)->where('name', $json['className'])->first()
+        $viewController = ViewController::where('app_id', 1)->where('name', $json['className'])->first();
         if (!$viewController)
             $viewController = new ViewController;
         
