@@ -23,3 +23,4 @@ Route::get('start', function () {
 Route::resource('api/v1/controller', 'APIControllerController');
 Route::post('api/v1/controller/screenshot', 'APIControllerController@screenshot');
 Route::resource('apps', 'AppsController');
+Route::resource('tests', 'TestsController');

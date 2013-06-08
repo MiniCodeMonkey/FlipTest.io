@@ -6,12 +6,14 @@
 
 @section('content')
 
+<p></p>
+
 @foreach ($viewControllers as $viewController)
 
 <?php if ($viewController->name == 'RevealController') continue; ?>
 
 <div class="viewcontroller-container">
-	<h2>{{ $viewController->name }}</h2>
+	<h2 class="">{{ $viewController->name }}</h2>
 
 	<div class="viewcontroller @if ($viewController->parentController == 'UINavigationController') with-navigationbar@endif">
 		{{ printView($viewController->view_data) }}
