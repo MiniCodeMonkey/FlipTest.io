@@ -29,7 +29,13 @@ function printView($view) {
 		return;
 	?>
 	<div class="view viewtype-{{ $view->className }}@if ($view->className == 'UIButton') btn@endif" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;">
-		<h3>{{ $view->className }}</h3>
+		<h3>
+			@if (($view->className == 'UIButton' || $view->className == 'UILabel') && isset($view->text))
+				{{ $view->text }}
+			@else
+				{{ $view->className }}
+			@endif
+		</h3>
 
 		@if ($view->className != 'UIButton' && $view->className != 'UITableView')
 			@foreach ($view->children as $subview)
