@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'HomeController@showIndex');
-Route::ressource('api/v1/controller', 'APIControllerController');
+Route::resource('api/v1/controller', 'APIControllerController');
