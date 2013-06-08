@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="jumbotron">
-	<h1><i class="icon-beaker icon-flip-vertical"></i>FlipTest</h1>
+	<h1>Flip<i class="icon-beaker icon-flip-vertical"></i>Test</h1>
 	<p class="lead">Easily create and manage A/B tests for iOS apps</p>
 	<a class="btn btn-large btn-success" href="#">Login</a>
 	<a class="btn btn-large btn-success" href="{{ URL::to('start') }}">Get started</a>

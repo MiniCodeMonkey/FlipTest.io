@@ -30,7 +30,7 @@ function printView($view) {
 	if ($view->className[0] == '_')
 		return;
 	?>
-	<div class="view viewtype-{{ $view->className }}@if ($view->className == 'UIButton') btn@endif" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;">
+	<div class="view viewtype-{{ $view->className }}@if ($view->className == 'UIButton') btn btn-warning@endif" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="">
 		<h3>
 			@if (($view->className == 'UIButton' || $view->className == 'UILabel') && isset($view->text))
 				{{ $view->text }}

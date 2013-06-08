@@ -11,7 +11,7 @@
 <div class="container">
     @if (Request::segment(1) != NULL)
     <div class="masthead">
-        <h3 class="muted"><i class="icon-beaker icon-flip-vertical"></i>FlipTest</h3>
+        <h3 class="muted">Flip<i class="icon-beaker icon-flip-vertical"></i>Test</h3>
         <div class="navbar">
             <div class="navbar-inner">
                 <div class="container">
