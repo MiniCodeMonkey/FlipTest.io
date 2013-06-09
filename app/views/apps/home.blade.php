@@ -13,7 +13,7 @@
 				<img src="{{ URL::to('img/opennearby.png') }}" alt="What's Open Nearby?">
 				<div class="caption">
 					<h3>What's Open Nearby?</h3>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+					<p>This is just the default demonstration app to show how FlipTest works, all user accounts will have this app configured per default.</p>
 					<p><a href="{{ URL::route('apps.show', array(1)) }}" class="btn btn-primary">Go to app</a></p>
 				</div>
 			</div>
@@ -24,8 +24,8 @@
 				<i class="icon-plus" style="font-size: 6.9em; text-align: center; display: block;"></i>
 				<div class="caption">
 					<h3>Add new app</h3>
-					<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-					<p><a href="{{ URL::route('apps.show', array(1)) }}" class="btn btn-primary">Add app</a></p>
+					<p>While it could be really cool to support multiple apps and everything, we have to rememeber that this is just a Hackathon...</p>
+					<p><a href="#" class="btn btn-primary">Add app</a></p>
 				</div>
 			</div>
 		</li>

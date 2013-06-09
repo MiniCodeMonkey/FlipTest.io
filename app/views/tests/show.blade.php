@@ -18,6 +18,8 @@
 
 <canvas id="linechart" width="700" height="400"></canvas>
 
+<hr />
+
 <table class="table table-striped">
 	<tr>
 		<th>Test Group</th>
