@@ -25,17 +25,33 @@ class APIController extends BaseController {
 
     public function showTests()
     {
+        if (!Input::has('user')) {
+            return Response::json(array('success' => false));
+        }
+
+        $user = Input::get('user');
+
         $result = array();
         $tests = Test::where('expire', '>', new DateTime)->get();
 
         foreach ($tests as $test) {
+            // Is the user registered for this test?
+            $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->first();
+            if (!$testuser) {
+                $testuser = new Testuser;
+                $testuser->user_identifier = $user;
+                $testuser->test_id = $test->id;
+                $testuser->group = (mt_rand(0, 100) ? > 50 'A' : 'B');
+                $testuser->save();
+            }
+
             $result[] = array(
                 'id' => $test->id,
                 'controller' => $test->viewcontroller->name,
                 'view_id' => $test->view_id,
                 'goal_view_id' => $test->goal_view_id,
                 'test_type' => $test->test_type,
-                'test_value' => $test->test_value
+                'test_value' => ($testuser->group == 'A') ? null : $test->test_value
             );
         }
 
@@ -44,22 +60,34 @@ class APIController extends BaseController {
 
     public function testView($id)
     {
+        if (!Input::has('user')) {
+            return Response::json(array('success' => false));
+        }
+
         $test = Test::findOrFail($id);
+        $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->firstOrFail();
 
         $impression = new Impression;
         $impression->test_id = $test->id;
         $impression->is_goal = 0;
+        $impression->group = $testuser->group;
         $impression->user_identifier = Input::get('user');
         $impression->save();
     }
 
     public function testGoal($id)
     {
+        if (!Input::has('user')) {
+            return Response::json(array('success' => false));
+        }
+
         $test = Test::findOrFail($id);
+        $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->firstOrFail();
 
         $impression = new Impression;
         $impression->test_id = $test->id;
         $impression->is_goal = 1;
+        $impression->group = $testuser->group;
         $impression->user_identifier = Input::get('user');
         $impression->save();
     }
