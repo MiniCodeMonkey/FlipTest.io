@@ -25,6 +25,10 @@ Route::get('about', function () {
 	return View::make('about');
 });
 
+Route::get('login', function () {
+	return View::make('login');
+});
+
 Route::resource('api/v1/test', 'APITestController');
 Route::resource('api/v1/controller', 'APIControllerController');
 
