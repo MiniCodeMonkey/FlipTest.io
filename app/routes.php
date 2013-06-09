@@ -46,6 +46,7 @@ Route::controller('auth', 'AuthController');
 Route::group(array('before' => 'auth'), function() {
 	Route::resource('apps', 'AppsController');
 	Route::resource('tests', 'TestsController');
+	Route::get('tests/{id}/stop', 'TestsController@stop');
 });
 
 // 404

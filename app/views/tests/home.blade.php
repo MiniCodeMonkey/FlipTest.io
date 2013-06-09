@@ -16,6 +16,7 @@
 		<td><a href="/apps/1">What's Open Nearby?</a></td>
 		<td>{{ (time() < strtotime($test->expire)) ? 'Expires ' . $test->getExpiresRelative() : '&mdash;' }}</td>
 		<td><a href="{{ URL::route('tests.show', array($test->id)) }}" class="btn btn-success">Show test</a></td>
+		<td><a href="{{ URL::to('tests/' . $test->id . '/stop') }}" class="btn btn-danger"{{ (time() >= strtotime($test->expire) ? ' disabled="disabled" onclick="return false;"' : '') }}><i class="icon-remove"></i> Stop test</a></td>
 	</tr>
 @endforeach
 </table>

@@ -157,9 +157,13 @@ class TestsController extends BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id)
+    public function stop($id)
     {
-        //
+        $test = Test::findOrFail($id);
+        $test->expire = new DateTime;
+        $test->save();
+
+        return Redirect::route('tests.index');
     }
 
 }

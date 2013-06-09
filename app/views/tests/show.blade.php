@@ -50,7 +50,7 @@
 		<td>{{{ $test->test_value }}}</td>
 		<td>{{ $bviews }}</td>
 		<td>{{ $bgoals }}</td>
-		<td>{{ round($brate, 2) }}%</td>       
+		<td>{{ round($brate, 2) }}%</td>
 	</tr>
 </table>
 
