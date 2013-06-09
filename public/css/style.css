@@ -120,10 +120,17 @@ body {
 .viewcontroller-container {
   float: left;
   margin: 10px;
+  padding: 57px 24px;
+  width: 374px;
+  height: 799px;
+  background: url(../img/phone_background.png) no-repeat;
 }
 
 .viewcontroller-container h2 {
   font-size: 19px;
+  text-align: center;
+  color: #FFF;
+  margin-left: -50px;
 }
 
 .viewcontroller {
