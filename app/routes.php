@@ -29,6 +29,11 @@ Route::get('login', function () {
 	return View::make('login');
 });
 
+App::missing(function($exception)
+{
+    return Response::view('errors-404', array(), 404);
+});
+
 Route::resource('api/v1/test', 'APITestController');
 Route::resource('api/v1/controller', 'APIControllerController');
 
