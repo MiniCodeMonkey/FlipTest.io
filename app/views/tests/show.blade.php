@@ -7,17 +7,24 @@
 @section('content')
 
 <h2>{{ $test->name }}</h2>
-
-<em>
+<h4>Test in <em>{{ $test->viewcontroller->name }}</em> changing {{ $test->test_type }} to {{ $test->test_value }}</h4>
+<p><em>
 @if (time() < strtotime($test->expire))
 	Expires {{ $test->getExpiresRelative() }}
 @else
 	Test completed on {{ $test->expire }}
 @endif
-</em>
+</em></p>
 
-<h3>Controller</h3> {{ $test->viewcontroller->name }}
-<h3>Test Type</h3> {{ $test->test_type }}
-<h3>Value</h3> {{ $test->test_value }}
+<canvas id="linechart" width="700" height="400"></canvas>
 
+@stop
+
+@section('scripts')
+	@parent
+	<script language="javascript">
+	var data = {{ json_encode($chart_data) }};
+	</script>
+	{{ HTML::script('js/Chart.min.js') }}
+	{{ HTML::script('js/test.js') }}
 @stop

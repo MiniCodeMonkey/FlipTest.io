@@ -10,6 +10,11 @@ class Test extends Eloquent {
     	return $this->belongsTo('ViewController', 'controller_id');
     }
 
+    function impressions()
+    {
+    	return $this->hasMany('Impression', 'test_id');
+    }
+
     function getExpiresRelative()
 	{
 		$ts = $this->expire;

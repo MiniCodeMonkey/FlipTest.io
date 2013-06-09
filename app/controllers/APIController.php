@@ -33,6 +33,7 @@ class APIController extends BaseController {
                 'id' => $test->id,
                 'controller' => $test->viewcontroller->name,
                 'view_id' => $test->view_id,
+                'goal_view_id' => $test->goal_view_id,
                 'test_type' => $test->test_type,
                 'test_value' => $test->test_value
             );
