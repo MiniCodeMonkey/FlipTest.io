@@ -29,14 +29,14 @@
 	</tr>
 
 	<tr>
-		<td style="background-color: #1f77b4;">A</td>
+		<td style="background-color: rgba(31,119,180,0.5);">A</td>
 		<td>{{ $aviews }}</td>
 		<td>{{ $agoals }}</td>
 		<td>{{ round($arate, 2) }}%</td>       
 	</tr>
 
 	<tr>
-		<td style="background-color: #ff7f0e;">B</td>
+		<td style="background-color: rgba(180,31,38,0.5);">B</td>
 		<td>{{ $bviews }}</td>
 		<td>{{ $bgoals }}</td>
 		<td>{{ round($brate, 2) }}%</td>       

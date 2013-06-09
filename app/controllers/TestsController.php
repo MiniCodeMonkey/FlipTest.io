@@ -101,21 +101,21 @@ class TestsController extends BaseController {
                 } while ($now < $lastImpression);
 
                 $chart_data['datasets'] = array(
-                    array(
-                        'fillColor' => 'rgba(31,119,180,0.5)', // #1f77b4
-                        'strokeColor' => 'rgba(31,119,180,1)',
-                        'pointColor' => 'rgba(31,119,180,1)',
-                        'pointStrokeColor' => '#fff',
-                        'data' => $dataa
+                        array(
+                            'fillColor' => 'rgba(31,119,180,0.5)', // #1f77b4
+                            'strokeColor' => 'rgba(31,119,180,1)',
+                            'pointColor' => 'rgba(31,119,180,1)',
+                            'pointStrokeColor' => '#fff',
+                            'data' => $dataa
                         ),
-                    array(
-                        'fillColor' => 'rgba(255,127,14,0.5)', // #ff7f0e
-                        'strokeColor' => 'rgba(255,127,14,1)',
-                        'pointColor' => 'rgba(255,127,14,1)',
-                        'pointStrokeColor' => '#fff',
-                        'data' => $datab
+                        array(
+                            'fillColor' => 'rgba(180,31,38,0.5)', // #ff7f0e
+                            'strokeColor' => 'rgba(180,31,38,1)',
+                            'pointColor' => 'rgba(180,31,38,1)',
+                            'pointStrokeColor' => '#fff',
+                            'data' => $datab
                         ),
-                    );
+                );
             }
         }
 
