@@ -12,12 +12,17 @@
 */
 
 Route::get('/', 'HomeController@showIndex');
+
 Route::get('contact', function () {
 	return View::make('contact');
 });
 
 Route::get('start', function () {
 	return View::make('start');
+});
+
+Route::get('about', function () {
+	return View::make('about');
 });
 
 Route::resource('api/v1/controller', 'APIControllerController');
