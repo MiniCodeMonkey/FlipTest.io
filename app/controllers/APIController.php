@@ -41,7 +41,7 @@ class APIController extends BaseController {
             $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->first();
             if (!$testuser) {
                 $lastUser = Testuser::where('test_id', $test->id)->orderBy('created_at', 'desc')->first();
-                $group = ($lastUser && $lastUser->group == 'A') ? 'B' : 'A';
+                $group = ($lastUser && $lastUser->group == 'B') ? 'A' : 'B';
 
                 $testuser = new Testuser;
                 $testuser->user_identifier = $user;
