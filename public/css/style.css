@@ -106,6 +106,12 @@ body {
   position: absolute;
   margin: 0;
   padding: 0;
+  display: block;
+}
+
+.viewcontroller .view span {
+  padding-top: 11px;
+  display: block;
 }
 
 .viewcontroller .view .with-navigationbar {

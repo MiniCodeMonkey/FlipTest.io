@@ -19,6 +19,7 @@ class TestsController extends BaseController {
      */
     public function create()
     {
+        
         return View::make('tests.create');
     }
 
