@@ -29,6 +29,10 @@ Route::get('login', function () {
 	return View::make('login');
 });
 
+Route::get('pricing', function () {
+	return View::make('pricing');
+});
+
 App::missing(function($exception)
 {
     return Response::view('errors-404', array(), 404);

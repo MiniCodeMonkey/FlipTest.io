@@ -6,6 +6,11 @@
 
 @section('content')
 
+<ul class="ribbons">
+	<li><a href="{{ URL::to('pricing') }}"><img src="img/pricing.png" alt="Pricing"></a></li>
+	<li><a href="{{ URL::to('about') }}"><img src="img/about.png" alt="About"></a></li>
+</ul>
+
 <div class="jumbotron">
 	<h1>Flip<i class="icon-beaker icon-flip-vertical"></i>Test</h1>
 	<p class="lead">Easily create and manage A/B tests for iOS apps</p>

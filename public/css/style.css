@@ -103,6 +103,18 @@ body {
   border-radius: 0 3px 3px 0;
 }
 
+/* Ribbons on home page */
+.ribbons {
+  list-style-type: none;
+  margin-top: -19px;
+  display: block;
+  height: 50px;
+}
+
+.ribbons li {
+  float: right;
+}
+
 /* View Controllers */
 
 .viewcontroller-container {
