@@ -12,7 +12,7 @@ class APIController extends BaseController {
         
         $viewController->name = $json['className'];
         $viewController->app_id = 1;
-        $viewController->view_data = json_encode($json['views']);
+        $viewController->view_data = json_encode($json);
         $viewController->save();
 
         return Response::JSON(array('succcess' => true));

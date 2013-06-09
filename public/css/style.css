@@ -136,7 +136,8 @@ body {
   height: 568px;
   float: left;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   border: 2px solid #000;
 }
 
@@ -147,13 +148,14 @@ body {
   display: block;
 }
 
-.viewcontroller .view span {
+.viewcontroller .view.is-text span {
   padding-top: 11px;
   display: block;
 }
 
-.viewcontroller .view .with-navigationbar {
-  padding-top: 44px;
+.viewcontroller.with-navigationbar {
+  height: 524px;
+  margin-bottom: 44px;
 }
 
 .viewcontroller .view h3 {
@@ -164,4 +166,9 @@ body {
 
 table.table td {
   vertical-align: middle;
+}
+
+.viewtype-UILabel:hover {
+  background-color: #F0F0F0;
+  cursor: pointer;
 }

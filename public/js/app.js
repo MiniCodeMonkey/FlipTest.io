@@ -35,6 +35,7 @@ $(function() {
 		// Update element when text changes
 		$('#create-test #view_text').keyup(function () {
 			element.find('span').html($(this).val());
+			$('#test_name').val($(this).val() + ' Test');
 		});
 
 		// Show dialog

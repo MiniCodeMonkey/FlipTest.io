@@ -90,8 +90,8 @@
 	<div class="viewcontroller-container">
 		<h2>{{ $viewController->name }}</h2>
 
-		<div class="viewcontroller @if ($viewController->parentController == 'UINavigationController') with-navigationbar@endif" data-controllerid="{{ $viewController->id }}">
-			{{ printView($viewController->view_data) }}
+		<div class="viewcontroller @if ($viewController->view_data->parentController == 'UINavigationController') with-navigationbar@endif" data-controllerid="{{ $viewController->id }}">
+			{{ printView($viewController->view_data->views) }}
 		</div>
 	</div>
 @endforeach
@@ -104,19 +104,19 @@ function printView($view) {
 	if ($view->className[0] == '_')
 		return;
 	?>
-	@if ($view->className == 'UIButton')
-		<a class="view viewtype-{{ $view->className }} btn btn-warning" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}"><span>{{ $view->text }}</span></a>
+	@if ($view->className == 'UIButton' || $view->className == 'UIRoundedRectButton')
+		<a class="view viewtype-{{ $view->className }} btn btn-warning {{ empty($view->text) ? '' : 'is-text' }}" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px; font-size: {{ empty($view->text) ? round($view->w * 4) : 100 }}%;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}"><span>{{ empty($view->text) ? '<i class="icon-picture"></i>' : $view->text }}</span></a>
+	@elseif ($view->className == 'UITextField')
+		<input type="text" style="display: block; position: absolute; left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" />
 	@else
 		<div class="view viewtype-{{ $view->className }}" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}">
 				@if (($view->className == 'UILabel') && isset($view->text))
 					{{ $view->text }}
 				@endif
 
-			@if ($view->className != 'UITableView')
-				@foreach ($view->children as $subview)
-				{{ printView($subview); }}
-				@endforeach
-			@endif
+			@foreach ($view->children as $subview)
+			{{ printView($subview); }}
+			@endforeach
 		</div>
 	@endif
 	<?php
