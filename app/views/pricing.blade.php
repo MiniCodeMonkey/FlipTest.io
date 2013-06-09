@@ -34,7 +34,7 @@
       </ul>          
       <p>Great for developers who don't want to rely on their gut for what will lead to the most revenue and/or conversions.</p>
       <hr>
-      <h3><i class="icon-phone"></i> Call Us for Pricing</h3>
+      <h3>$ 75 / month</h3>
       <hr>
       <p><a class="btn btn-success btn-large" href="#"><i class="icon-ok"></i> Select plan</a></p>
     </div>
@@ -50,7 +50,7 @@
       </ul>          
       <p>Perfect for agencies and brands that want to run a lot of different tests.</p>
       <hr>
-      <h3><i class="icon-phone"></i> Call Us for Pricing</h3>
+      <h3>$ 350 / month</h3>
       <hr>
       <p><a class="btn btn-large" href="#"><i class="icon-ok"></i> Select plan</a></p>
     </div>
