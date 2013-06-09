@@ -30,6 +30,7 @@ class APIController extends BaseController {
 
         foreach ($tests as $test) {
             $result[] = array(
+                'id' => $test->id,
                 'controller' => $test->viewcontroller->name,
                 'view_id' => $test->view_id,
                 'test_type' => $test->test_type,
@@ -38,6 +39,28 @@ class APIController extends BaseController {
         }
 
         return Response::json($result);
+    }
+
+    public function testView($id)
+    {
+        $test = Test::findOrFail($id);
+
+        $impression = new Impression;
+        $impression->test_id = $test->id;
+        $impression->is_goal = 0;
+        $impression->user_identifier = Input::get('user');
+        $impression->save();
+    }
+
+    public function testGoal($id)
+    {
+        $test = Test::findOrFail($id);
+
+        $impression = new Impression;
+        $impression->test_id = $test->id;
+        $impression->is_goal = 1;
+        $impression->user_identifier = Input::get('user');
+        $impression->save();
     }
 
 }

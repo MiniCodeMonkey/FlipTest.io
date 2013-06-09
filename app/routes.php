@@ -38,5 +38,8 @@ Route::post('api/v1/controller', 'APIController@storeController');
 Route::post('api/v1/controller/screenshot', 'APIController@storeScreenshot');
 Route::get('api/v1/tests', 'APIController@showTests');
 
+Route::get('api/v1/tests/{id}/view', 'APIController@testView');
+Route::get('api/v1/tests/{id}/goal', 'APIController@testGoal');
+
 Route::resource('apps', 'AppsController');
 Route::resource('tests', 'TestsController');
