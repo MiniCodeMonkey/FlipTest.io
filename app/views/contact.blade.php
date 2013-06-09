@@ -8,26 +8,14 @@
 
 <h2>Contact Us</h2>
 
-<div class="row">
-  <div class="span3 offset4">
-    <form>
-      <div class="row">
-        <input type="text" placeholder="Name">
-      </div>
-
-      <div class="row">
-        <input type="text" id="inputEmail" placeholder="Email">
-      </div>
-
-      <div class="row">
-        <textarea rows="3" placeholder="What's up?"></textarea>
-      </div>
-
-      <div class="row">
-        <button type="submit" class="btn">Submit</button>
-      </div>
-    </form>
-  </div>
-</div>
+<p>
+  <strong>Michele:</strong> <a href="mailto:mjwalk10@gmail.com">mjwalk10@gmail.com</a>
+</p>
+<p>
+  <strong>Mathias:</strong> <a href="mailto:me@codemonkey.io">me@codemonkey.io</a>
+</p>
+<p>
+  <strong>Will:</strong> <a href="http://twitter.com/WillSummers" target="_blank">@WillSummers</a>
+</p>
 
 @stop
