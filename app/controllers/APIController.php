@@ -7,15 +7,17 @@ class APIController extends BaseController {
         $json = Input::json()->all();
 
         $viewController = ViewController::where('app_id', 1)->where('name', $json['className'])->first();
-        if (!$viewController)
-            $viewController = new ViewController;
+        if ($viewController) {
+            return Response::JSON(array('succcess' => true, 'duplicate' => true));
+        }
         
+        $viewController = new ViewController;
         $viewController->name = $json['className'];
         $viewController->app_id = 1;
         $viewController->view_data = json_encode($json);
         $viewController->save();
 
-        return Response::JSON(array('succcess' => true));
+        return Response::JSON(array('succcess' => true, 'duplicate' => false));
     }
 
     public function storeScreenshot()
