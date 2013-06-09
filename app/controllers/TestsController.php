@@ -9,7 +9,7 @@ class TestsController extends BaseController {
      */
     public function index()
     {
-        $tests = Test::orderBy('expire', 'desc')->get();
+        $tests = Test::orderBy('created_at', 'desc')->get();
 
         return View::make('tests.home', compact('tests'));
     }
