@@ -54,7 +54,7 @@ class TestsController extends BaseController {
         $test->test_value = (Input::get('test_type') == 'text') ? Input::get('view_text') : Input::get('view_textcolor');
         $test->save();
 
-        return Redirect::route('tests.show', array($test->id));
+        return Redirect::route('tests.index');
     }
 
     /**
