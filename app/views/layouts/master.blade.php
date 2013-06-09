@@ -17,9 +17,13 @@
                 <div class="container">
                     <ul class="nav">
                         <li{{ (Request::segment(1) == NULL) ? ' class="active"' : ''}}><a href="{{ URL::to('/') }}"><i class="icon-home"></i> Home</a></li>
-                        <li{{ (Request::segment(1) == 'about') ? ' class="active"' : ''}}><a href="{{ URL::to('about') }}"><i class="icon-info"></i> About</a></li>
+                        
+                        @if (Auth::check())
                         <li{{ (Request::segment(1) == 'apps')? ' class="active"' : ''}}><a href="{{ URL::to('apps') }}"><i class="icon-mobile-phone"></i> Apps</a></li>
                         <li{{ (Request::segment(1) == 'tests') ? ' class="active"' : ''}}><a href="{{ URL::to('tests') }}"><i class="icon-bar-chart"></i> Tests</a></li>
+                        @endif
+
+                        <li{{ (Request::segment(1) == 'about') ? ' class="active"' : ''}}><a href="{{ URL::to('about') }}"><i class="icon-info"></i> About</a></li>
                         <li{{ (Request::segment(1) == 'contact') ? ' class="active"' : ''}}><a href="{{ URL::to('contact') }}"><i class="icon-envelope"></i> Contact</a></li>
                     </ul>
                 </div>
@@ -31,9 +35,13 @@
     @yield('content')
 
     <hr>
-
     <div class="footer">
-      <p>&copy; FlipTest 2013</p>
+      <p>
+        &copy; FlipTest 2013
+        @if (Auth::check())
+            &bull; <a href="{{ URL::to('auth/logout') }}"><i class="icon-lock"></i> Logout</a>
+        @endif
+      </p>
     </div>
 </div> <!-- /container -->
 

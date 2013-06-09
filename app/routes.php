@@ -11,8 +11,10 @@
 |
 */
 
+// Home page
 Route::get('/', 'HomeController@showIndex');
 
+// Simple pages
 Route::get('contact', function () {
 	return View::make('contact');
 });
@@ -25,19 +27,11 @@ Route::get('about', function () {
 	return View::make('about');
 });
 
-Route::get('login', function () {
-	return View::make('login');
-});
-
 Route::get('pricing', function () {
 	return View::make('pricing');
 });
 
-App::missing(function($exception)
-{
-    return Response::view('errors-404', array(), 404);
-});
-
+// API Endpoints
 Route::post('api/v1/controller', 'APIController@storeController');
 Route::post('api/v1/controller/screenshot', 'APIController@storeScreenshot');
 Route::get('api/v1/tests', 'APIController@showTests');
@@ -45,5 +39,17 @@ Route::get('api/v1/tests', 'APIController@showTests');
 Route::get('api/v1/tests/{id}/view', 'APIController@testView');
 Route::get('api/v1/tests/{id}/goal', 'APIController@testGoal');
 
-Route::resource('apps', 'AppsController');
-Route::resource('tests', 'TestsController');
+// Authentication
+Route::controller('auth', 'AuthController');
+
+// Authenticated controllers
+Route::group(array('before' => 'auth'), function() {
+	Route::resource('apps', 'AppsController');
+	Route::resource('tests', 'TestsController');
+});
+
+// 404
+App::missing(function($exception)
+{
+    return Response::view('errors-404', array(), 404);
+});

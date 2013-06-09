@@ -27,8 +27,8 @@
 <title>Oh no! My beaker!</title>
 <body style="background-color: #e6e6e6; margin-top: 0; padding-top: 0;">
 
-<div style="background: url('img/404-grad.png') repeat-x;">
-<img src="img/404.jpg" alt="404" style="display: block; margin: 0 auto" />
+<div style="background: url('/img/404-grad.png') repeat-x;">
+<img src="/img/404.jpg" alt="404" style="display: block; margin: 0 auto" />
 </div>
 
   <div class="hero-unit center" style="background-color: #e6e6e6;">

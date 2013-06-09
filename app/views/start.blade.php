@@ -10,15 +10,15 @@
 
 <form class="form-horizontal">
     <div class="control-group">
-        <label class="control-label" for="appName">Name of App</label>
+        <label class="control-label" for="appName">App Name</label>
         <div class="controls">
-            <input type="text" id="appName" placeholder="Name">
+            <input type="text" id="appName" placeholder="My iOS App">
         </div>
     </div>
     <div class="control-group">
-        <label class="control-label" for="appId">Apple Identifier</label>
+        <label class="control-label" for="appId">App Identifier</label>
         <div class="controls">
-            <input type="text" id="appId" placeholder="AppleId">
+            <input type="text" id="appId" placeholder="com.acme.myiosapp">
         </div>
     </div>
     <h4>Create account</h4>
