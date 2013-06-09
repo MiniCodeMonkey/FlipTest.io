@@ -61,9 +61,9 @@
 				<div class="controls">
 					<input type="text" name="duration_length" id="duration_length" class="span1" value="1">
 					<select name="duration_unit" class="span2">
-						<option>day(s)</option>
-						<option>week(s)</option>
-						<option>month(s)</option>
+						<option value="D">day(s)</option>
+						<option value="W">week(s)</option>
+						<option value="M">month(s)</option>
 					</select>
 					<span class="help-block">For how long do you want the test to run?</span>
 				</div>
