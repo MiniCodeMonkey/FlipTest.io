@@ -38,10 +38,13 @@ class APIController extends BaseController {
             // Is the user registered for this test?
             $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->first();
             if (!$testuser) {
+                $lastUser = Testuser::where('test_id', $test->id)->orderBy('created_at', 'desc')->first();
+                $group = ($lastUser && $lastUser->group == 'B') ? 'A' : 'B';
+
                 $testuser = new Testuser;
                 $testuser->user_identifier = $user;
                 $testuser->test_id = $test->id;
-                $testuser->group = ((mt_rand(0, 100) > 50) ? 'A' : 'B');
+                $testuser->group = $group;
                 $testuser->save();
             }
 

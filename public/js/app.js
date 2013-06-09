@@ -43,4 +43,29 @@ $(function() {
 
 		return false;
 	});
+
+	// Create test button clicked
+	$('.view.viewtype-UILabel').click(function () {
+		var element = $(this).find('span').first();
+		
+		// Set hidden inputs
+		$('#create-test #controller_id').val(element.parents('.viewcontroller').data('controllerid'));
+		$('#create-test #view_id').val(element.parent().data('viewid'));
+		$('#create-test #original_text').val(element.parent().data('orig-text'));
+		$('#create-test #original_textcolor').val(element.parent().data('orig-textcolor'));
+
+		// Set button/label text
+		$('#create-test #view_text').val(element.text());
+
+		// Update element when text changes
+		$('#create-test #view_text').keyup(function () {
+			element.find('span').html($(this).val());
+			$('#test_name').val($(this).val() + ' Test');
+		});
+
+		// Show dialog
+		$('#create-test').modal('show');
+
+		return false;
+	});
 });

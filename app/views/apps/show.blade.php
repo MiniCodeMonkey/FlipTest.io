@@ -111,7 +111,7 @@ function printView($view) {
 	@else
 		<div class="view viewtype-{{ $view->className }}" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}">
 				@if (($view->className == 'UILabel') && isset($view->text))
-					{{ $view->text }}
+					<span>{{ $view->text }}</span>
 				@endif
 
 			@foreach ($view->children as $subview)
