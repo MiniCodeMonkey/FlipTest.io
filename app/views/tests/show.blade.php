@@ -6,12 +6,18 @@
 
 @section('content')
 
-{{ $test->name }}
-{{ $test->expire }}
-{{ $test->app_id }}
-{{ $test->controller_id }}
-{{ $test->view_id }}
-{{ $test->test_type }}
-{{ $test->test_value }}
+<h2>{{ $test->name }}</h2>
+
+<em>
+@if (time() < strtotime($test->expire))
+	Expires {{ $test->getExpiresRelative() }}
+@else
+	Test completed on {{ $test->expire }}
+@endif
+</em>
+
+<h3>Controller</h3> {{ $test->viewcontroller->name }}
+<h3>Test Type</h3> {{ $test->test_type }}
+<h3>Value</h3> {{ $test->test_value }}
 
 @stop

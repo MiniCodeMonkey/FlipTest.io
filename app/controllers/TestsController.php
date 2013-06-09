@@ -9,7 +9,9 @@ class TestsController extends BaseController {
      */
     public function index()
     {
-        return View::make('tests.home');
+        $tests = Test::orderBy('expire', 'desc')->get();
+
+        return View::make('tests.home', compact('tests'));
     }
 
     /**
@@ -30,31 +32,6 @@ class TestsController extends BaseController {
      */
     public function store()
     {
-        /*
-        Array
-        (
-            [test_type] => text
-            [view_text] => Suggest a New Store
-            [view_textcolor] => #000000
-            [test_name] => 
-            [duration_length] => 1
-            [duration_unit] => day(s)
-            [controller_id] => 2
-            [view_id] => 0.0.2
-            [app_id] => 1
-        )
-
-        $table->increments('id');
-            $table->string('name');
-            $table->datetime('expire');
-            $table->integer('app_id');
-            $table->string('controller_id');
-            $table->string('view_id');
-            $table->string('test_type');
-            $table->string('test_value');
-            $table->timestamps();
-        */
-
         if (Input::get('duration_unit') == 'W') {
             $duration_length = 7;
             $duration_unit = 'D';
@@ -69,7 +46,7 @@ class TestsController extends BaseController {
 
         $test = new Test;
         $test->name = Input::get('test_name');
-        $test->expire = new DateTime;
+        $test->expire = $expires;
         $test->app_id = Input::get('app_id');
         $test->controller_id = Input::get('controller_id');
         $test->view_id = Input::get('view_id');

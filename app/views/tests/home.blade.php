@@ -6,4 +6,18 @@
 
 @section('content')
 
+<h2>Tests</h2>
+
+<table class="table table-striped">
+@foreach ($tests as $test)
+	<tr>
+		<td>{{ (time() < strtotime($test->expire)) ? '<i class="icon-spin icon-spinner"></i> Running' : '<i class="icon-ok"></i> Completed' }}</td>
+		<td>{{{ $test->name }}}</td>
+		<td><a href="/apps/1">What's Open Nearby?</a></td>
+		<td>{{ (time() < strtotime($test->expire)) ? 'Expires ' . $test->getExpiresRelative() : '&mdash;' }}</td>
+		<td><a href="{{ URL::route('tests.show', array($test->id)) }}" class="btn btn-success">Show test</a></td>
+	</tr>
+@endforeach
+</table>
+
 @stop
