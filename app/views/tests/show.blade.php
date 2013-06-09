@@ -33,7 +33,7 @@
 		<th>Test Group</th>
 		<th>Description</th>
 		<th>Impressions</th>
-		<th>Conversions</th>
+		<th>Clicks</th>
 		<th>Conversion rate</th>
 	</tr>
 

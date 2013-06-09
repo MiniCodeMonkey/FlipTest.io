@@ -30,9 +30,6 @@ $(function() {
 	// Create test button clicked
 	$('.view.btn').click(function () {
 		var element = $(this);
-
-		// Put element in foreground
-		element.css('z-index', 10000);
 		
 		// Set hidden inputs
 		$('#create-test #controller_id').val(element.parents('.viewcontroller').data('controllerid'));

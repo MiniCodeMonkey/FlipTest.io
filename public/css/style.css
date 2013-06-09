@@ -149,6 +149,7 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
   border: 2px solid #000;
+  background: url('../img/background_pattern.png') repeat;
 }
 
 .viewcontroller .view {
