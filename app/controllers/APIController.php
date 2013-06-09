@@ -26,7 +26,7 @@ class APIController extends BaseController {
     public function showTests()
     {
         $result = array();
-        $tests = Test::where('expire', '<', new DateTime)->get();
+        $tests = Test::where('expire', '>', new DateTime)->get();
 
         foreach ($tests as $test) {
             $result[] = array(

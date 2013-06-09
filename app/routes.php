@@ -34,9 +34,6 @@ App::missing(function($exception)
     return Response::view('errors-404', array(), 404);
 });
 
-Route::resource('api/v1/test', 'APITestController');
-Route::resource('api/v1/controller', 'APIControllerController');
-
 Route::post('api/v1/controller', 'APIController@storeController');
 Route::post('api/v1/controller/screenshot', 'APIController@storeScreenshot');
 Route::get('api/v1/tests', 'APIController@showTests');
