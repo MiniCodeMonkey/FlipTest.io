@@ -26,6 +26,8 @@ $(function() {
 		// Set hidden inputs
 		$('#create-test #controller_id').val(element.parents('.viewcontroller').data('controllerid'));
 		$('#create-test #view_id').val(element.data('viewid'));
+		$('#create-test #original_text').val(element.data('orig-text'));
+		$('#create-test #original_textcolor').val(element.data('orig-textcolor'));
 
 		// Set button/label text
 		$('#create-test #view_text').val(element.text());

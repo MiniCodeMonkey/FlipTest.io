@@ -72,6 +72,8 @@
 			<input type="hidden" name="controller_id" id="controller_id" value="" />
 			<input type="hidden" name="view_id" id="view_id" value="" />
 			<input type="hidden" name="app_id" id="app_id" value="{{{ Request::segment(2) }}}" />
+			<input type="hidden" name="original_text" id="original_text" value="" />
+			<input type="hidden" name="original_textcolor" id="original_textcolor" value="" />
 	</div>
 	<div class="modal-footer">
 		<a href="#" class="btn" id="modal-cancel">Cancel</a>
@@ -103,9 +105,9 @@ function printView($view) {
 		return;
 	?>
 	@if ($view->className == 'UIButton')
-		<a class="view viewtype-{{ $view->className }} btn btn-warning" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}"><span>{{ $view->text }}</span></a>
+		<a class="view viewtype-{{ $view->className }} btn btn-warning" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}"><span>{{ $view->text }}</span></a>
 	@else
-		<div class="view viewtype-{{ $view->className }}" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}">
+		<div class="view viewtype-{{ $view->className }}" style="left: {{ $view->x }}px; top: {{ $view->y }}px; width: {{ $view->w }}px; height: {{ $view->h }}px;" data-viewid="{{ $view->id }}" data-orig-text="{{ isset($view->text) ? $view->text : '' }}" data-orig-textcolor="{{ isset($view->textcolor) ? $view->textcolor : '' }}">
 				@if (($view->className == 'UILabel') && isset($view->text))
 					{{ $view->text }}
 				@endif

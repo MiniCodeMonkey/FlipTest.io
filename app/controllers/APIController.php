@@ -41,7 +41,7 @@ class APIController extends BaseController {
                 $testuser = new Testuser;
                 $testuser->user_identifier = $user;
                 $testuser->test_id = $test->id;
-                $testuser->group = (mt_rand(0, 100) ? > 50 'A' : 'B');
+                $testuser->group = ((mt_rand(0, 100) > 50) ? 'A' : 'B');
                 $testuser->save();
             }
 
@@ -51,7 +51,7 @@ class APIController extends BaseController {
                 'view_id' => $test->view_id,
                 'goal_view_id' => $test->goal_view_id,
                 'test_type' => $test->test_type,
-                'test_value' => ($testuser->group == 'A') ? null : $test->test_value
+                'test_value' => ($testuser->group == 'A') ? $test->original_value : $test->test_value
             );
         }
 
@@ -63,6 +63,8 @@ class APIController extends BaseController {
         if (!Input::has('user')) {
             return Response::json(array('success' => false));
         }
+
+        $user = Input::get('user');
 
         $test = Test::findOrFail($id);
         $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->firstOrFail();
@@ -80,6 +82,8 @@ class APIController extends BaseController {
         if (!Input::has('user')) {
             return Response::json(array('success' => false));
         }
+
+        $user = Input::get('user');
 
         $test = Test::findOrFail($id);
         $testuser = Testuser::where('test_id', $test->id)->where('user_identifier', $user)->firstOrFail();
