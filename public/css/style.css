@@ -162,7 +162,7 @@ body {
 
 .viewcontroller.with-navigationbar {
   height: 524px;
-  margin-bottom: 44px;
+  margin-top: 44px;
 }
 
 .viewcontroller .view h3 {
@@ -186,4 +186,18 @@ body.page-tests .graph-alert {
 
 .app-steps li {
    margin-bottom: 12px;
+}
+
+.controllers-list {
+  list-style-type: none;
+  margin: 0 0 100px 0;
+}
+.controllers-list li {
+  float: left;
+  margin-right: 8px;
+  font-size: 16px;
+}
+
+.controllers-list li a.active {
+  font-weight: bold;
 }

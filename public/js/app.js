@@ -1,4 +1,15 @@
 $(function() {
+	// Controllers
+	$('.controllers-list li a').click(function () {
+		$('.controllers-list li a').removeClass('active');
+		$(this).addClass('active');
+
+		$('.viewcontroller-container').hide();
+		$('.viewcontroller-container-' + $(this).attr('href').substr(1)).show();
+
+		return false;
+	});
+
 	// Test type radio buttons
 	$('#test_type_text').click(function () {
 		$('#section_test_type_text').show();

@@ -18,15 +18,15 @@
 		<h3>Create a New Test</h3>
 	</div>
 	<div class="modal-body">
-			<h4>What should be changed?</h4>
+			<h4>What would you like to test?</h4>
 
 			<label class="radio">
 				<input type="radio" name="test_type" id="test_type_text" value="text" checked>
-				Change text
+				Test copy
 			</label>
 			<label class="radio">
 				<input type="radio" name="test_type" id="test_type_textcolor" value="textcolor">
-				Change text color
+				Test text color
 			</label>
 
 			<div id="section_test_type_text">
@@ -47,12 +47,12 @@
 				</div>
 			</div>
 
-			<h4>Test information</h4>
+			<h4>Test settings</h4>
 			<div class="control-group">
 				<label class="control-label" for="test_name">Test Name</label>
 				<div class="controls">
 					<input type="text" name="test_name" id="test_name" placeholder="Test Name">
-					<span class="help-block">Please enter a name for this test, this will make it easier to identify it later.</span>
+					<span class="help-block">Please enter a unique name for this test.</span>
 				</div>
 			</div>
 
@@ -66,7 +66,7 @@
 						<option value="W">week(s)</option>
 						<option value="M">month(s)</option>
 					</select>
-					<span class="help-block">For how long do you want the test to run?</span>
+					<span class="help-block">How long should the test run for?</span>
 				</div>
 			</div>
 
@@ -83,12 +83,24 @@
 	{{ Form::close() }}
 </div>
 
-<p class="lead">Here is a list of all the detected controllers in your app, you can click on a button or label to start a new test.</p>
+<p class="lead">Here is a list of the view controllers/screens we have detected in your app.</p>
+<p class="lead">Select a controller and then click on a button or label to start a new A/B test!</p>
 
+<?php $first = true; ?>
+<ul class="controllers-list">
+@foreach ($viewControllers as $viewController)
+	<?php if ($viewController->name == 'RevealController') continue; ?>
+	<li><a href="#{{ $viewController->name }}" class="{{ $first ? 'active' : '' }}">{{ $viewController->name }}</a></li>
+	<?php $first = false; ?>
+@endforeach
+</ul>
+
+<?php $first = true; ?>
 @foreach ($viewControllers as $viewController)
 	<?php if ($viewController->name == 'RevealController') continue; ?>
 
-	<div class="viewcontroller-container">
+	<div class="viewcontroller-container viewcontroller-container-{{{ $viewController->name }}} {{ $first ? '' : 'hide' }}">
+		<?php $first = false; ?>
 		<h2>{{ $viewController->name }}</h2>
 
 		<div class="viewcontroller @if ($viewController->view_data->parentController == 'UINavigationController') with-navigationbar@endif" data-controllerid="{{ $viewController->id }}">
