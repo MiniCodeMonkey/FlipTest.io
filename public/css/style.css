@@ -172,3 +172,7 @@ table.table td {
   background-color: #F0F0F0;
   cursor: pointer;
 }
+
+body.page-tests .graph-alert {
+  margin: 60px 35px;
+}

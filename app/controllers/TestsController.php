@@ -40,7 +40,7 @@ class TestsController extends BaseController {
         }
 
         $expires = new DateTime;
-        $interval = new DateInterval('P'. $duration_length . $duration_unit);
+        $interval = new DateInterval('P'. ($duration_unit == 'H' ? 'T' : '') . $duration_length . $duration_unit);
         $expires->add($interval);
 
         $test = new Test;
@@ -100,20 +100,20 @@ class TestsController extends BaseController {
                 } while ($now < $lastImpression);
 
                 $chart_data['datasets'] = array(
-                        array(
-                            'fillColor' => 'rgba(31,119,180,0.5)', // #1f77b4
-                            'strokeColor' => 'rgba(31,119,180,1)',
-                            'pointColor' => 'rgba(31,119,180,1)',
-                            'pointStrokeColor' => '#fff',
-                            'data' => $dataa
-                        ),
-                        array(
-                            'fillColor' => 'rgba(180,31,38,0.5)', // #ff7f0e
-                            'strokeColor' => 'rgba(180,31,38,1)',
-                            'pointColor' => 'rgba(180,31,38,1)',
-                            'pointStrokeColor' => '#fff',
-                            'data' => $datab
-                        ),
+                    array(
+                        'fillColor' => 'rgba(31,119,180,0.5)', // #1f77b4
+                        'strokeColor' => 'rgba(31,119,180,1)',
+                        'pointColor' => 'rgba(31,119,180,1)',
+                        'pointStrokeColor' => '#fff',
+                        'data' => $dataa
+                    ),
+                    array(
+                        'fillColor' => 'rgba(180,31,38,0.5)', // #ff7f0e
+                        'strokeColor' => 'rgba(180,31,38,1)',
+                        'pointColor' => 'rgba(180,31,38,1)',
+                        'pointStrokeColor' => '#fff',
+                        'data' => $datab
+                    )
                 );
             }
         }
