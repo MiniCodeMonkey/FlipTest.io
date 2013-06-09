@@ -46,10 +46,10 @@
     <h4>Add FlipTest to your app</h4>
     <p>Great! Now you just need to a few last steps.</p>
 
-    <ol>
+    <ol class="app-steps">
         <li>Download the <a href="https://github.com/MiniCodeMonkey/FlipTestSDK/archive/master.zip">FlipTestSDK</a></li>
         <li>Drag <code>FlipTestSDK.xcodeproj</code> into your app project<br /><img src="img/fliptestsdk.png" alt="" /></li>
-        <li>Add <code>-ObjC</code> to Other Linker Flags for your app target</li>
+        <li>Make that the <code>-ObjC</code> flag is added to your app target in "Other Linker Flags"</li>
         <li>Add the following to <code>AppDelegate.m</code>
             <ul>
                 <li><code>#import "FlipTest.h"</code> in the top</li>

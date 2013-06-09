@@ -176,3 +176,7 @@ table.table td {
 body.page-tests .graph-alert {
   margin: 60px 35px;
 }
+
+.app-steps li {
+   margin-bottom: 12px;
+}
