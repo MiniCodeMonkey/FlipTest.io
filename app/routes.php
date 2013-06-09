@@ -25,7 +25,12 @@ Route::get('about', function () {
 	return View::make('about');
 });
 
+Route::resource('api/v1/test', 'APITestController');
 Route::resource('api/v1/controller', 'APIControllerController');
-Route::post('api/v1/controller/screenshot', 'APIControllerController@screenshot');
+
+Route::post('api/v1/controller', 'APIController@storeController');
+Route::post('api/v1/controller/screenshot', 'APIController@storeScreenshot');
+Route::get('api/v1/tests', 'APIController@showTests');
+
 Route::resource('apps', 'AppsController');
 Route::resource('tests', 'TestsController');
