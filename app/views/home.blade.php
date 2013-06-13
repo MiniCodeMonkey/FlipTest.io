@@ -6,10 +6,12 @@
 
 @section('content')
 
+{{--
 <ul class="ribbons">
 	<li><a href="{{ URL::to('pricing') }}"><img src="img/pricing.png" alt="Pricing"></a></li>
 	<li><a href="{{ URL::to('about') }}"><img src="img/about.png" alt="About"></a></li>
 </ul>
+--}}
 
 <div class="jumbotron">
 	<h1>Flip<i class="icon-beaker icon-flip-vertical"></i>Test</h1>
@@ -19,9 +21,11 @@
 		<a class="btn btn-large btn-success" href="{{ URL::to('apps') }}">Apps</a>
 		<a class="btn btn-large btn-success" href="{{ URL::to('tests') }}">Tests</a>
 	@else
-		<a class="btn btn-large btn-success" href="{{ URL::to('auth/login') }}">Login</a>
-		<a class="btn btn-large btn-success" href="{{ URL::to('start') }}">Get started</a>
+		<a class="btn btn-large btn-success" href="{{ URL::to('about') }}">About</a>
+		<a class="btn btn-large btn-success" href="{{ URL::to('learn') }}">Learn more</a>
 	@endif
+
+	<iframe width="560" height="315" class="video-embed" src="http://www.youtube.com/embed/Jl7wKaMWOew?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <hr>

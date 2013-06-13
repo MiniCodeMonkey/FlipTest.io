@@ -65,6 +65,11 @@ body {
   margin: 10px;
 }
 
+.jumbotron .video-embed {
+  display: block;
+  margin: 0 auto;
+}
+
 /* Supporting marketing content */
 .marketing {
   margin: 60px 0;

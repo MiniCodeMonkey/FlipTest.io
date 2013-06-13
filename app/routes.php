@@ -23,6 +23,10 @@ Route::get('start', function () {
 	return View::make('start');
 });
 
+Route::get('learn', function () {
+	return View::make('learn');
+});
+
 Route::get('about', function () {
 	return View::make('about');
 });

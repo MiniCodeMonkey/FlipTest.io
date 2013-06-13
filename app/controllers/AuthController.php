@@ -46,6 +46,30 @@ class AuthController extends BaseController {
         return Redirect::to('apps');
     }
 
+    public function postLearn()
+    {
+        $rules = array(
+            'email' => 'required|email|unique:users'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        // Redirect back
+        if ($validator->fails())
+        {
+            return Redirect::to('learn')->withErrors($validator);
+        }
+
+        // Create user
+        $user = new User;
+        $user->email = Input::get('email');
+        $user->password = Hash::make('notyet');
+        $user->save();
+
+        return Redirect::to('learn')
+            ->with('registered', true);
+    }
+
     public function getLogin()
     {
         return View::make('auth.login');
